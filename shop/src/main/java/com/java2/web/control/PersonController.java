@@ -19,22 +19,22 @@ public class PersonController {
 	@Autowired
 	private PersonService personService;
 
-	@RequestMapping(path = "getUsers", method = RequestMethod.GET)
+	@RequestMapping(path = "", method = RequestMethod.GET)
 	public List<PersonDto> getPersons() {
 		return personService.getPersons();
 	}
 	
-	@RequestMapping(path = "postUser", method = RequestMethod.POST)
+	@RequestMapping(path = "", method = RequestMethod.POST)
 	public void addPerson(@RequestBody PersonDto person) {
 		personService.addPerson(person);
 	}
 	
-	@RequestMapping(path = "deleteUser/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
 	public void deletePerson(@PathVariable Integer id) {
 		personService.deletePerson(id);
 	}
 	
-	@RequestMapping(path = "updateUser", method = RequestMethod.PUT)
+	@RequestMapping(path = "", method = RequestMethod.PUT)
 	public void uptatePerson(@RequestBody PersonDto person) {
 		personService.updatePerson(person);
 	}

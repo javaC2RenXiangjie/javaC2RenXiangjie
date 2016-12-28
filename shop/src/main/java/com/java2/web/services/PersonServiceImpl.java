@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.java2.web.dtos.PersonDto;
 import com.java2.web.entities.PersonEntity;
 import com.java2.web.repositories.IPersonRepository;
-import com.java2.web.repositories.PersonRepo;
 
 @Service
 public class PersonServiceImpl implements PersonService {
