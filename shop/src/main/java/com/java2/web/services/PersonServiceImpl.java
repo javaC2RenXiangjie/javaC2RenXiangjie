@@ -45,6 +45,7 @@ public class PersonServiceImpl implements PersonService {
 		PersonEntity personEntity = new PersonEntity();
 		personEntity.setName(person.getName());
 		personEntity.setSex(person.getSex());
+		
 		iPersonRepository.addPerson(personEntity);
 	}
 	
@@ -57,11 +58,11 @@ public class PersonServiceImpl implements PersonService {
 	@Transactional
 	@Override
 	public void updatePerson(PersonDto person) {
-		PersonEntity personEntity = iPersonRepository.getPersonById(person.getId());
+		PersonEntity personEntity = new PersonEntity();
 		personEntity.setName(person.getName());
 		personEntity.setSex(person.getSex());
 		personEntity.setId(person.getId());
 		iPersonRepository.updatePerson(personEntity);
 	}
-	
+
 }

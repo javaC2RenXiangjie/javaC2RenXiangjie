@@ -1,9 +1,13 @@
 package com.java2.web.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +20,15 @@ public class PersonEntity {
 	
 	private String name;
 	private String sex;
+	
+	@OneToMany(mappedBy= "person" ,cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	private List<AddressEntity> addressEntity;	
+	public List<AddressEntity> getAddressEntity() {
+		return addressEntity;
+	}
+	public void setAddressEntity(List<AddressEntity> addressEntity) {
+		this.addressEntity = addressEntity;
+	}
 	public Integer getId() {
 		return id;
 	}

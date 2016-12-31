@@ -35,6 +35,9 @@ public class PersonRepo implements IPersonRepository{
 
 	@Override
 	public void updatePerson(PersonEntity person) {
-		em.merge(person);
+		PersonEntity per = em.find(PersonEntity.class, person.getId());
+		per.setName(person.getName());
+		per.setSex(person.getSex());
+		em.merge(per);
 	}
 }
