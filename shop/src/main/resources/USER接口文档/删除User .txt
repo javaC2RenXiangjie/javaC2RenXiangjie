@@ -1,0 +1,22 @@
+
+1.Title                       删除用户
+
+2.URL                         /users/id
+
+3.Method             	      DELETE
+
+4.Headers     		      null
+
+5.Date Params                 null
+
+6.响应状态码：
+    成功响应：
+        201：Delete成功
+        内容：{ true|false }
+
+    错误响应：
+        status:400(语意有误)
+        内容：{ error：URL Could not be recognized }
+
+        status:404：(找不到资源)
+        内容：{error：Cannot find the specified resource}

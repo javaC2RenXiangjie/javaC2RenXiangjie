@@ -1,9 +1,11 @@
 package com.java2.web.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +23,8 @@ public class PersonEntity {
 	private String name;
 	private String sex;
 	
-	@OneToMany(mappedBy= "person" ,cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private List<AddressEntity> addressEntity;	
+	@OneToMany(mappedBy= "person",fetch = FetchType.EAGER,cascade =  CascadeType.ALL )
+	private List<AddressEntity> addressEntity = new ArrayList<AddressEntity>();	
 	public List<AddressEntity> getAddressEntity() {
 		return addressEntity;
 	}
@@ -47,5 +49,8 @@ public class PersonEntity {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	
+	@Override
+	public String toString() {
+		return "PersonEntity [id=" + id + ", name=" + name + ", sex=" + sex + ", addressEntity=" + addressEntity + "]";
+	}
 }

@@ -1,5 +1,6 @@
 package com.java2.web.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,12 +20,12 @@ public class AddressEntity {
 	private Integer id;
 	private String country;
 	private String city;
-	private String street;
+	private String street;                                                                          
 	
-	@Column(name = "person_id")
-	private int personId;
+//	@Column(name = "person_id")
+//	private int personId;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name = "person_id")
 	private PersonEntity person;
 	public PersonEntity getPerson() {
@@ -58,16 +59,15 @@ public class AddressEntity {
 		this.street = street;
 	}
 	
-	public Integer getPersonId() {
-		return personId;
-	}
-	public void setPersonId(Integer personId) {
-		this.personId = personId;
-	}
 	@Override
 	public String toString() {
-		return "AddressEntity [id=" + id + ", country=" + country + ", city=" + city + ", street=" + street
-				+ "]";
+		return "AddressEntity [id=" + id + ", country=" + country + ", city=" + city + ", street=" + street + "]";
 	}
+//	public Integer getPersonId() {
+//		return personId;
+//	}
+//	public void setPersonId(Integer personId) {
+//		this.personId = personId;
+//	}
 	
 }

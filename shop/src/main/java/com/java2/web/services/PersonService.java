@@ -13,4 +13,6 @@ public interface PersonService {
 	public void deletePerson(Integer id);
 	
 	public void updatePerson(PersonDto person);
+
+	public boolean isUserCreaditialValid(String userName, String password);
 }

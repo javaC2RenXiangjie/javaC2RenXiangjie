@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.java2.web.dtos.AddressDto;
 import com.java2.web.dtos.PersonDto;
+import com.java2.web.entities.AddressEntity;
 import com.java2.web.entities.PersonEntity;
 import com.java2.web.repositories.IPersonRepository;
 
@@ -15,15 +17,7 @@ import com.java2.web.repositories.IPersonRepository;
 public class PersonServiceImpl implements PersonService {
 
 	@Autowired
-	private IPersonRepository iPersonRepository;
-	
-	public IPersonRepository getiPersonRepository() {
-		return iPersonRepository;
-	}
-
-	public void setiPersonRepository(IPersonRepository iPersonRepository) {
-		this.iPersonRepository = iPersonRepository;
-	}
+	IPersonRepository iPersonRepository;
 
 	@Override
 	public List<PersonDto> getPersons() {
@@ -34,6 +28,17 @@ public class PersonServiceImpl implements PersonService {
 			per.setId(persEnt.getId());
 			per.setName(persEnt.getName());
 			per.setSex(persEnt.getSex());
+			List<AddressDto> addresses = new ArrayList<AddressDto>();
+			for(int i = 0; i < persEnt.getAddressEntity().size(); i++) {
+				AddressDto address = new AddressDto();
+				address.setId(persEnt.getAddressEntity().get(i).getId());
+				address.setCountry(persEnt.getAddressEntity().get(i).getCountry());
+				address.setCity(persEnt.getAddressEntity().get(i).getCity());
+				address.setStreet(persEnt.getAddressEntity().get(i).getStreet());
+//				address.setPesonId(persEnt.getAddressEntity().get(i));
+				addresses.add(address);
+			}
+			per.setAddresses(addresses);
 			personDto.add(per);
 		}
 		return personDto;
@@ -45,7 +50,13 @@ public class PersonServiceImpl implements PersonService {
 		PersonEntity personEntity = new PersonEntity();
 		personEntity.setName(person.getName());
 		personEntity.setSex(person.getSex());
-		
+		for(AddressDto ad : person.getAddresses()) {
+			AddressEntity ae = new AddressEntity();
+			ae.setId(ad.getId());
+			ae.setCountry(ad.getCountry());
+			ae.setCity(ad.getCity());
+			ae.setStreet(ad.getStreet());
+		}
 		iPersonRepository.addPerson(personEntity);
 	}
 	
@@ -62,7 +73,29 @@ public class PersonServiceImpl implements PersonService {
 		personEntity.setName(person.getName());
 		personEntity.setSex(person.getSex());
 		personEntity.setId(person.getId());
+		for(AddressDto ad : person.getAddresses()) {
+			AddressEntity ae = new AddressEntity();
+			ae.setId(ad.getId());
+			ae.setCountry(ad.getCountry());
+			ae.setCity(ad.getCity());
+			ae.setStreet(ad.getStreet());
+			ae.setPerson(personEntity);
+			personEntity.getAddressEntity().add(ae);
+		}		
 		iPersonRepository.updatePerson(personEntity);
 	}
 
+	@Override
+	public boolean isUserCreaditialValid(String userName, String password) {
+
+		
+		
+		
+		
+		
+		
+		return false;
+	}
+	
+	
 }

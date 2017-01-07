@@ -15,11 +15,13 @@ public class PersonRepo implements IPersonRepository{
 	@PersistenceContext
 	EntityManager em;
 	
+	@Override
 	public List<PersonEntity> getPersons(){
 		return em.createQuery("from PersonEntity",PersonEntity.class).getResultList();
 	}
 	
-	public void addPerson( PersonEntity person) {
+	@Override
+	public void addPerson(PersonEntity person) {
 		em.persist(person);
 	}
 
@@ -35,9 +37,6 @@ public class PersonRepo implements IPersonRepository{
 
 	@Override
 	public void updatePerson(PersonEntity person) {
-		PersonEntity per = em.find(PersonEntity.class, person.getId());
-		per.setName(person.getName());
-		per.setSex(person.getSex());
-		em.merge(per);
+		em.merge(person);
 	}
 }

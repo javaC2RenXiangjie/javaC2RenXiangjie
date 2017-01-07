@@ -1,0 +1,47 @@
+
+1.Title                       更改用户
+
+2.URL                         /users
+
+3.Method             	      PUT
+
+4.Headers     		      Content-type:  application/json
+
+5.Date Params                 创建数据所需数据
+				{	id:[int],
+					name:[String],
+					sex:[String],	
+					addresss:{
+						country:[String],
+						city:[String],
+						street:[String]
+						}
+					}
+
+
+			    Example:
+				{
+				"name":"ren",
+				"sex":"male",
+				"address":[{
+					"country":"china",
+					"city":"handan",
+					"street":"Qingyun  Street"						
+
+					},{
+					
+					...
+				     }
+					]
+				}
+6.响应状态码：
+    成功响应：
+        201：PUT成功
+        内容：{ true|false }
+
+    错误响应：
+        status:400(语意有误)
+        内容：{ error：URL Could not be recognized }
+
+        status:404：(找不到资源)
+        内容：{error：Cannot find the specified resource}
