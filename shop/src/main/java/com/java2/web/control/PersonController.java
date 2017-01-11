@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.java2.web.dtos.PersonDto;
+import com.java2.web.exception.MyException;
 import com.java2.web.services.PersonService;
 
 @RestController
@@ -24,9 +25,16 @@ public class PersonController {
 		return personService.getPersons();
 	}
 	
+	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
+	public PersonDto getPersonById(@PathVariable Integer id) {
+		
+		
+		return personService.getPersonById(id);
+	}
+	
 	@RequestMapping(path = "", method = RequestMethod.POST)
-	public void addPerson(@RequestBody PersonDto person) {
-		personService.addPerson(person);
+	public PersonDto addPerson(@RequestBody PersonDto person) {
+		return personService.addPerson(person);
 	}
 	
 	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)

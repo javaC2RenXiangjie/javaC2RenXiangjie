@@ -54,8 +54,6 @@ public class CategoryServiceImpl implements ICategoryService{
 			pe.setName(pd.getName());
 			pe.setOriginPrice(pd.getOriginPrice());
 			pe.setPrice(pd.getPrice());
-			//关联回去？？？？？？？？？？？？？？？？？？？
-//			pe.setCategory();
 		}
 		iCategoryRepository.updateCategory(ce);
 	}

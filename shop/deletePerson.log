@@ -1,0 +1,4 @@
+22:02:21   增加操作： PersonEntity [id=null, name=xiangjie, sex=male, addressEntity=[]]
+22:02:21   增加操作： PersonEntity [id=null, name=renxiangjie, sex=male, addressEntity=[]]
+22:02:21   更改操作：  Name属性：xiangjie 改为--->renxiangjie	
+22:02:21   删除操作：	 contents:PersonEntity [id=11, name=renxiangjie, sex=male, addressEntity=[]]

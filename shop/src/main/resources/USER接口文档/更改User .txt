@@ -5,12 +5,16 @@
 
 3.Method             	      PUT
 
-4.Headers     		      Content-type:  application/json
+4.Headers     		      Content-type:  application/json 		//
 
 5.Date Params                 创建数据所需数据
 				{	id:[int],
-					name:[String],
-					sex:[String],	
+					nickName:[String],
+					gender:[String],	
+					nail
+					password
+					defaultAddress
+					
 					addresss:{
 						country:[String],
 						city:[String],

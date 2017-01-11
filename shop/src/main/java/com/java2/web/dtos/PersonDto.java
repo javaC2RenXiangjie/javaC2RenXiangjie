@@ -1,5 +1,6 @@
 package com.java2.web.dtos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersonDto {
@@ -7,7 +8,7 @@ public class PersonDto {
 	private Integer id;
 	private String name;
 	private String sex;
-	private List<AddressDto> addresses;
+	private List<AddressDto> addresses = new ArrayList<AddressDto>();
 	public List<AddressDto> getAddresses() {
 		return addresses;
 	}

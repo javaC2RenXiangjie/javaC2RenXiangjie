@@ -22,9 +22,6 @@ public class AddressEntity {
 	private String city;
 	private String street;                                                                          
 	
-//	@Column(name = "person_id")
-//	private int personId;
-	
 	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name = "person_id")
 	private PersonEntity person;
@@ -63,11 +60,5 @@ public class AddressEntity {
 	public String toString() {
 		return "AddressEntity [id=" + id + ", country=" + country + ", city=" + city + ", street=" + street + "]";
 	}
-//	public Integer getPersonId() {
-//		return personId;
-//	}
-//	public void setPersonId(Integer personId) {
-//		this.personId = personId;
-//	}
-	
+
 }

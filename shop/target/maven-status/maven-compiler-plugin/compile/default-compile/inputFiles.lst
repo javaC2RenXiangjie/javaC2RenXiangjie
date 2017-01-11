@@ -4,8 +4,8 @@ D:\ren\shop\src\main\java\com\java2\web\entities\AddressEntity.java
 D:\ren\shop\src\main\java\com\java2\web\services\ICategoryService.java
 D:\ren\shop\src\main\java\com\java2\web\entities\CategoryEntity.java
 D:\ren\shop\src\main\java\com\java2\web\services\PersonService.java
+D:\ren\shop\src\main\java\com\java2\web\exception\MyException.java
 D:\ren\shop\src\main\java\com\java2\web\services\CategoryServiceImpl.java
-D:\ren\shop\src\main\java\com\java2\web\control\AbstractExceptionHandler.java
 D:\ren\shop\src\main\java\com\java2\web\repositories\IPersonRepository.java
 D:\ren\shop\src\main\java\com\java2\web\control\PersonController.java
 D:\ren\shop\src\main\java\com\java2\web\services\PersonServiceImpl.java
@@ -13,7 +13,6 @@ D:\ren\shop\src\main\java\com\java2\web\dtos\PersonDto.java
 D:\ren\shop\src\main\java\com\java2\web\dtos\ProductionDto.java
 D:\ren\shop\src\main\java\com\java2\web\dtos\AddressDto.java
 D:\ren\shop\src\main\java\com\java2\web\repositories\PersonRepo.java
-D:\ren\shop\src\main\java\com\java2\web\control\BusinessExceptionHandler.java
 D:\ren\shop\src\main\java\com\java2\web\entities\PersonEntity.java
 D:\ren\shop\src\main\java\com\java2\web\repositories\CategoryRepo.java
 D:\ren\shop\src\main\java\com\java2\web\control\CategoryController.java

@@ -35,7 +35,6 @@ public class PersonServiceImpl implements PersonService {
 				address.setCountry(persEnt.getAddressEntity().get(i).getCountry());
 				address.setCity(persEnt.getAddressEntity().get(i).getCity());
 				address.setStreet(persEnt.getAddressEntity().get(i).getStreet());
-//				address.setPesonId(persEnt.getAddressEntity().get(i));
 				addresses.add(address);
 			}
 			per.setAddresses(addresses);
@@ -46,7 +45,7 @@ public class PersonServiceImpl implements PersonService {
 	
 	@Transactional
 	@Override
-	public void addPerson(PersonDto person) {
+	public int addPerson(PersonDto person) {
 		PersonEntity personEntity = new PersonEntity();
 		personEntity.setName(person.getName());
 		personEntity.setSex(person.getSex());
@@ -57,7 +56,7 @@ public class PersonServiceImpl implements PersonService {
 			ae.setCity(ad.getCity());
 			ae.setStreet(ad.getStreet());
 		}
-		iPersonRepository.addPerson(personEntity);
+		return iPersonRepository.addPerson(personEntity);
 	}
 	
 	@Transactional
@@ -87,7 +86,6 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public boolean isUserCreaditialValid(String userName, String password) {
-
 		
 		
 		
@@ -95,6 +93,25 @@ public class PersonServiceImpl implements PersonService {
 		
 		
 		return false;
+	}
+
+	@Transactional
+	@Override
+	public PersonDto getPersonById(Integer id) {
+		PersonDto pd = new PersonDto();
+		PersonEntity pe = iPersonRepository.getPersonById(id);
+		pd.setId(pe.getId());
+		pd.setName(pe.getName());
+		pd.setSex(pe.getSex());
+		for(AddressEntity ae: pe.getAddressEntity()) {
+			AddressDto ad = new AddressDto();
+			ad.setId(ae.getId());
+			ad.setCountry(ae.getCountry());
+			ad.setCity(ae.getCity());
+			ad.setStreet(ae.getStreet());
+			pd.getAddresses().add(ad);
+		}
+		return pd;
 	}
 	
 	

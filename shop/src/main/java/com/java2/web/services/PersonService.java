@@ -8,7 +8,9 @@ public interface PersonService {
 
 	public List<PersonDto> getPersons();
 	
-	public void addPerson(PersonDto person);
+	public PersonDto getPersonById(Integer id);
+	
+	public int addPerson(PersonDto person);
 	
 	public void deletePerson(Integer id);
 	

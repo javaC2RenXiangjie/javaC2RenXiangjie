@@ -31,9 +31,6 @@ public class AuthentecationFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		//getUser info by userName.
-		//compare userPassword in HttpRequest is equals password in DB
-		
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -46,9 +43,6 @@ public class AuthentecationFilter implements Filter{
 		String username = creditialArray[0];
 		String password = creditialArray[1];
 		
-//		PersonServiceImpl ps = context.getBean("personServiceImpl" , PersonServiceImpl.class);
-		
-//		boolean passAuth = ps.isUserCreaditialValid(username, password);
 		boolean passAuth = true;
 		if(passAuth) {
 			System.out.println("hello");
@@ -62,7 +56,6 @@ public class AuthentecationFilter implements Filter{
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
 		
 	}
 
